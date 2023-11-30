@@ -8,6 +8,7 @@ const palette = document.getElementById("palette"), // where coloe swatches are 
 
 const paletteReset = () => {
     setBkgdHex(128);
+    setTextColor('fff');
 };
 // change background color
 const changeBkgd = () => {
@@ -51,8 +52,8 @@ reset_bkgd.addEventListener('click', paletteReset);
 hide_palette_text.addEventListener('click', hideCaps);
 bkgd_color.addEventListener('change', changeBkgd);
 
-//changeBkgd();
-//paletteReset();
+changeBkgd();
+paletteReset();
 
 
 

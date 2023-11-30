@@ -26,8 +26,6 @@ Changes from master (@ https://github.com/zygisS22/color-palette-extraction):
 	Added customized CSS file (based on Bootstrap 5.3.2).
 	
 	Added code to do reconstruction and display of image with calculated color palette. 11/29/23
-	
-	Modified CSS: added Bootstrap 5.3.2, with cdn delivery, with a small custom.css file.
 
 The original repository was created as an example for this [article]
 (https://dev.to/producthackers/creating-a-color-palette-with-javascript-44ip)
@@ -36,5 +34,3 @@ The original repository was created as an example for this [article]
 ## How to run
 
 Clone the repository and open the index.html file in a browser.
-
-Internet access is required to download Bootstrap css and js files.
