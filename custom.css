@@ -122,7 +122,7 @@ canvas { border-radius: 2%; max-width: 100%; height: auto; }
 
 #palette div canvas, #complementary div canvas { width: 100px; height: 60px; }
 
-#spinner, #spinner1 { visibility: hidden; border-width: 0.15em; display: block; }
+#spinner, #spinner1 { visibility: hidden; border-width: 0.15em; display: block; opacity: 0.6 }
 
 .cap_color { color: #fff; margin: 0px; }
 
