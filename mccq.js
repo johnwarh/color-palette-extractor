@@ -1,23 +1,21 @@
-
+	// Image upload form
 const form = document.getElementById("form"), // image upload form
 	loadBtn = document.getElementById('btnLoad'),
 	resetBtn = document.getElementById('btnReset'),
 	imgFile = document.getElementById("imgfile"), // the uploaded image file
 	colors = document.getElementById('colors'), // number of colors in palette from form
-
+	// canvases, spinners, etc. for image display
 	sIcanvas = document.getElementById('sIcanvas'), // canvas for uploaded image
 	ctx = sIcanvas.getContext("2d"),
+	spinner = document.getElementById('spinner'),
 	qIcanvas = document.getElementById('qIcanvas'), // cnavas for quantized color image
 	ctx1 = qIcanvas.getContext('2d'),
+	spinner1 = document.getElementById('spinner1'),
 	num_colors = document.getElementById('num_colors'), // for display
 	fileName = document.getElementById('filename'),  // for display
-	spinner1 = document.getElementById('spinner1'),
+	// palettes
 	paletteContainer = document.getElementById("palette"), // the palette color swatches
-	compContainer = document.getElementById("complementary"), // complementary palette color swatches
-	spinner = document.getElementById('spinner'),
-
-	qIpixels = []; // quantized color image array
-	
+	compContainer = document.getElementById("complementary"); // complementary palette color swatches
 
 /** Processes the list of palette colors and then builds the HTML
  *  framework to display the palette swatched */
@@ -233,7 +231,7 @@ const quantization = (rgbValues, depth) => {
 		color.b = Math.round(color.b / rgbValues.length);
 		console.log("qnt rgb =[" + color.r + "," + color.g + "," + color.b + "]", 'length = ' + rgbValues.length);
 
-		// set pixel color for all in the bucket in the reassembled quantized-color image
+		// set pixel color for all in the bucket for the reassembled quantized-color image
 		for (let j = 0; j < pixelIndex.length; j++) {
 			const pixel = {};
 			pixel.r = color.r;
@@ -278,21 +276,24 @@ const buildRgb = ( imageData ) => {
 	return rgbValues;
 };
 
+// quantized color image data array
+const qIpixels = [];
+
 const main = () => {
 	clean_canvas_and_palette();
 	const image = new Image(); // the uploaded image
 	const file = imgFile.files[0];
 	const reader = new FileReader();
-	spinner.style.visibility = 'visible'; // show spinners when busy
-	spinner1.style.visibility = 'visible';
 	fileName.innerHTML = file.name;
 	n_colors = 2**colors.value;
-	num_colors.innerHTML = n_colors; // for display of n_colors
-
-
+	num_colors.innerHTML = n_colors;
+	spinner.style.visibility = 'visible'; // show spinners when busy
+	spinner1.style.visibility = 'visible';
+	
 	reader.onload = () => {
 		image.onload = () => {
 
+			// set canvas widths for image display
 			sIcanvas.width = qIcanvas.width = image.width;
 			sIcanvas.height = qIcanvas.height = image.height;
 			console.log('sIcanvas w x h = ', sIcanvas.width, ' x ', sIcanvas.height)
@@ -301,10 +302,10 @@ const main = () => {
 			ctx.drawImage(image, 0, 0);
 			const imageData = ctx.getImageData(0, 0, sIcanvas.width, sIcanvas.height);
 
-			// create rgbArray of pixels, incl. pixel index for processing
+			// create rgbArray of pixels, incl. pixel index, for processing
 			const rgbArray = buildRgb(imageData.data);
 
-			// quantized colors in rgbArray; the global 'qIpixels' is ready to use
+			// quantize colors in rgbArray; the global 'qIpixels' is ready to use after this
 			quantColors = quantization(rgbArray, 0);
 
 			// Create the HTML structure to display the color palette;
@@ -327,6 +328,8 @@ const main = () => {
 				j += 4;
 			}
 			console.log('qImageData.data.length = ' + qImageData.data.length);
+
+			// write qImage data to canvas
 			ctx1.putImageData(qImageData, 0, 0);
 
 			// hide spinners when finished

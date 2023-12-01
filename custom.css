@@ -1,60 +1,20 @@
 /*! Bootstrap  v5.3.2 (https://getbootstrap.com/) Copyright 2011-2023 The Bootstrap Authors Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) */
-:root, [data-bs-theme="light"] { 
---bs-font-sans-serif: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, "Noto Sans", sans-serif; 
---bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
---bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)); 
---bs-body-font-family: var(--bs-font-sans-serif); 
---bs-body-font-size: 1rem;
---bs-body-font-weight: 400; 
---bs-body-line-height: 1.5; 
---bs-body-color: #c8bb72; 
---bs-body-color-rgb: 200, 187, 114; 
---bs-body-bg: #1a1a1a; 
---bs-body-bg-rgb: 26, 26, 26; 
---bs-heading-color: #c8bb72; 
---bs-link-color: #86b300; 
---bs-link-color-rgb: 134, 179, 0; 
---bs-link-decoration: none; 
---bs-link-hover-color: #fc0; 
---bs-link-hover-color-rgb: 255, 204, 0; 
---bs-link-hover-decoration: none; 
---bs-code-color: #d63384; 
---bs-highlight-color: #c8bb72; 
---bs-border-radius: 0.4rem; 
---bs-border-radius-sm: 0.3rem;  }
+:root, [data-bs-theme="light"] { --bs-font-sans-serif: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, "Noto Sans", sans-serif; --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)); --bs-body-font-family: var(--bs-font-sans-serif); --bs-body-font-size: 1rem; --bs-body-font-weight: 400; --bs-body-line-height: 1.5; --bs-body-color: #c8bb72; --bs-body-color-rgb: 200, 187, 114; --bs-body-bg: #1a1a1a; --bs-body-bg-rgb: 26, 26, 26; --bs-heading-color: #c8bb72; --bs-link-color: #86b300; --bs-link-color-rgb: 134, 179, 0; --bs-link-decoration: none; --bs-link-hover-color: #fc0; --bs-link-hover-color-rgb: 255, 204, 0; --bs-link-hover-decoration: none; --bs-code-color: #d63384; --bs-highlight-color: #c8bb72; --bs-highlight-bg: #fff3cd; }
 
-*, *::before, *::after { -webkit-box-sizing: border-box; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 @media (prefers-reduced-motion: no-preference) { :root { scroll-behavior: smooth; } }
 
-body { margin: 0; font-family: var(--bs-body-font-family); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); line-height: var(--bs-body-line-height); color: var(--bs-body-color); text-align: var(--bs-body-text-align); background-color: var(--bs-body-bg); -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+a { color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1)); text-decoration: none; }
 
-hr { margin: 1rem 0; color: inherit; border: 0; border-top: var(--bs-border-width) solid; opacity: 0.25; }
+a:hover { --bs-link-color-rgb: var(--bs-link-hover-color-rgb); text-decoration: none; }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-top: 0; margin-bottom: 0.5rem; font-family: times new roman, times, serif; font-weight: 500; line-height: 1.2; color: var(--bs-heading-color); }
-
-h1, .h1 { font-size: calc(1.38rem + 1.5vw); }
-
-@media (min-width: 1200px) { h1, .h1 { font-size: 2.5rem; } }
-
-h2, .h2 { font-size: calc(1.33rem + 0.9vw); }
-
-@media (min-width: 1200px) { h2, .h2 { font-size: 2rem; } }
-
-h3, .h3 { font-size: calc(1.3rem + 0.6vw); }
-
-@media (min-width: 1200px) { h3, .h3 { font-size: 1.75rem; } }
-
-h4, .h4 { font-size: calc(1.28rem + 0.3vw); }
-
-@media (min-width: 1200px) { h4, .h4 { font-size: 1.5rem; } }
-
-h5, .h5 { font-size: 1.25rem; }
-
-h6, .h6 { font-size: 1rem; }
+a:not([href]):not([class]), a:not([href]):not([class]):hover { color: inherit; text-decoration: none; }
 
 /*custom css*/
 /*RESETS*/
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { font-family: times new roman, times, serif; }
+
 p:empty, div:empty, b:empty, span:empty { display: none; }
 
 ul li { list-style-type: none; padding: 0; }
@@ -116,7 +76,7 @@ canvas { border-radius: 2%; max-width: 100%; height: auto; }
 
 #palette, #complementary { width: 100%; background-color: #808080; }
 
-#palette div, #complementary div { width: 100px; min-width: 100px; max-width: 100px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin: 0.1rem 0.5rem; }
+#palette div, #complementary div { width: 100px; min-width: 100px; max-width: 100px; align-items: center; margin: 0.1rem 0.5rem; }
 
 #palette p, #complementary p { font-size: medium; margin-bottom: 0px; }
 
@@ -125,8 +85,6 @@ canvas { border-radius: 2%; max-width: 100%; height: auto; }
 #spinner, #spinner1 { visibility: hidden; border-width: 0.15em; display: block; }
 
 .cap_color { color: #fff; margin: 0px; }
-
-.form-control::-webkit-file-upload-button { color: #000; font-weight: 600; background-color: #aaa; border: 1px solid #cc0; }
 
 .form-control::file-selector-button { color: #000; font-weight: 600; background-color: #aaa; border: 1px solid #cc0; }
 
