@@ -39,56 +39,36 @@ const buildPalette = (colorsList) => { // colorsList = quantized color rgbArray
 	for (let i = 0; i < colorsList.length; i++) {
 		const hexColor = rgbToHex(colorsList[i]);
 		const hexColorComp = hslToHex(hslColorsComp[i]);
-
-		/* create color palette div and text elements & append to the document */
-		let colorElement = document.createElement('div');
-		colorElement.classList.add('col');
-
-		let colorCanvas = document.createElement('div');
-		let cCanvas = document.createElement('canvas');
-		cCanvas.style.backgroundColor = hexColor;
-		colorCanvas.appendChild(cCanvas);
-
-		let textElement = document.createElement('div');
-		let para = document.createElement('p');
-		para.classList.add('cap_color');
-		let para1 = document.createElement('p');
-		para1.classList.add('cap_color');
-		textElement.appendChild(para);
-		textElement.appendChild(para1);
-		para.innerHTML = hexColor;
-		para1.innerHTML = "hsl(" + hslColors[i].h + "," + hslColors[i].s
-			+ "," + hslColors[i].l + ")";
-
-		colorElement.appendChild(colorCanvas);
-		colorElement.appendChild(textElement);
-		paletteContainer.appendChild(colorElement); // add colorElement to page
-
-		/* create complementary palette div and text elements & append to the document */
-		let compElement = document.createElement('div');
-		compElement.classList.add('col');
-
-		let compCanvas = document.createElement('div');
-		let ccCanvas = document.createElement('canvas');
-		ccCanvas.style.backgroundColor = hexColorComp;
-		compCanvas.appendChild(ccCanvas);
-
-		let textCElement = document.createElement('div');
-		let para2 = document.createElement('p');
-		para2.classList.add('cap_color');
-		let para3 = document.createElement('p');
-		para3.classList.add('cap_color');
-		textCElement.appendChild(para2);
-		textCElement.appendChild(para3);
-		para2.innerHTML = hexColorComp;
-		para3.innerHTML = "hsl(" + hslColorsComp[i].h + "," + hslColorsComp[i].s
-			+ "," + hslColorsComp[i].l + ")";
-
-		compElement.appendChild(compCanvas);
-		compElement.appendChild(textCElement);
-		compContainer.appendChild(compElement); // add colorElement to page
+		bld_pal(hslColors, hexColor , paletteContainer, i);
+		bld_pal(hslColorsComp, hexColorComp, compContainer, i);
 	}
 };
+
+/* create color palette div and text elements & append to the document */
+const bld_pal = (hslColors, hexColor, colorContainer, i) => {
+	let colorElement = document.createElement('div');
+	colorElement.classList.add('col');
+
+	let colorCanvas = document.createElement('div');
+	let cCanvas = document.createElement('canvas');
+	cCanvas.style.backgroundColor = hexColor;
+	colorCanvas.appendChild(cCanvas);
+
+	let textElement = document.createElement('div');
+	let para = document.createElement('p');
+	para.classList.add('cap_color');
+	let para1 = document.createElement('p');
+	para1.classList.add('cap_color');
+	textElement.appendChild(para);
+	textElement.appendChild(para1);
+	para.innerHTML = hexColor;
+	para1.innerHTML = "hsl(" + hslColors[i].h + "," + hslColors[i].s
+		+ "," + hslColors[i].l + ")";
+
+	colorElement.appendChild(colorCanvas);
+	colorElement.appendChild(textElement);
+	colorContainer.appendChild(colorElement); // add colorElement to page
+}
 
 /** Sort colors by lightness (l from hsl) */
 const orderByL = (colorsList, hslColors) => {

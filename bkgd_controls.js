@@ -1,5 +1,5 @@
 const palette = document.getElementById("palette"), // where coloe swatches are displayed
-    complementary = document.getElementById('complementary'); // where complementary colors are displayed
+    complementary = document.getElementById('complementary'), // where complementary colors are displayed
     bkgd_color = document.getElementById("bkgd_color"), // the palette bkgd color
     p_bkgd = document.getElementById('p_bkgd'), // bkgd color hex code displayed here
     cap_color = document.getElementsByClassName('cap_color'), // color of captions for color thumbnail

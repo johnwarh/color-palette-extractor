@@ -27,10 +27,10 @@ Changes from master (@ https://github.com/zygisS22/color-palette-extraction):
 	
 	Added code to do reconstruction and display of image with calculated color palette. 11/29/23
 	
-	Modified CSS: added Bootstrap 5.3.2, with cdn delivery, with a small custom.css file.
+	Modified CSS: added Bootstrap 5.3.2, with cdn delivery, with a small custom.css file. 11/29/23
 
-The original repository was created as an example for this [article]
-(https://dev.to/producthackers/creating-a-color-palette-with-javascript-44ip)
+	Modified palette swatch dimensions to w=100px by h=60px. 12/01/23
+
 
 
 ## How to run
