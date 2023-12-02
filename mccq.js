@@ -35,6 +35,7 @@ const buildPalette = (colorsList) => { // colorsList = quantized color rgbArray
 		hslColorsComp[i].h = (hslColorsComp[i].h > 180)
 			? hslColorsComp[i].h -= 180 : hslColorsComp[i].h += 180;
 	}
+
 	/* Calculate hex colors and write colors to document */
 	for (let i = 0; i < colorsList.length; i++) {
 		const hexColor = rgbToHex(colorsList[i]);
@@ -48,12 +49,12 @@ const buildPalette = (colorsList) => { // colorsList = quantized color rgbArray
 const bld_pal = (hslColors, hexColor, colorContainer, i) => {
 	let colorElement = document.createElement('div');
 	colorElement.classList.add('col');
-
+	// color swatch
 	let colorCanvas = document.createElement('div');
 	let cCanvas = document.createElement('canvas');
 	cCanvas.style.backgroundColor = hexColor;
 	colorCanvas.appendChild(cCanvas);
-
+	// color specs in hex and hsl
 	let textElement = document.createElement('div');
 	let para = document.createElement('p');
 	para.classList.add('cap_color');
@@ -64,7 +65,7 @@ const bld_pal = (hslColors, hexColor, colorContainer, i) => {
 	para.innerHTML = hexColor;
 	para1.innerHTML = "hsl(" + hslColors[i].h + "," + hslColors[i].s
 		+ "," + hslColors[i].l + ")";
-
+	// assemble color element into container and display
 	colorElement.appendChild(colorCanvas);
 	colorElement.appendChild(textElement);
 	colorContainer.appendChild(colorElement); // add colorElement to page
@@ -77,7 +78,7 @@ const orderByL = (colorsList, hslColors) => {
 	for (let i = 0; i < colorsList.length; i++) {
 		colorsListSort.push({ 'rgb': colorsList[i], 'hsl': hslColors[i] });
 	}
-	//sort colorsListSort
+	//sort colorsListSort and hslColors by lightness
 	const getL = (p) => { return p.hsl.l; }
 	colorsListSort.sort((p1, p2) => { return getL(p2) - getL(p1); })
 	// put sorted rgb and hsl values into colorsList and hslColors
@@ -266,7 +267,7 @@ const main = () => {
 	fileName.innerHTML = file.name;
 	n_colors = 2**colors.value;
 	num_colors.innerHTML = n_colors;
-	spinner.style.visibility = 'visible'; // show spinners when busy
+	spinner.style.visibility = 'visible';
 	spinner1.style.visibility = 'visible';
 	
 	reader.onload = () => {
@@ -287,7 +288,7 @@ const main = () => {
 			// quantize colors in rgbArray; the global 'qIpixels' is ready to use after this
 			quantColors = quantization(rgbArray, 0);
 
-			// Create the HTML structure to display the color palette;
+			// Assemble data and create HTML structure to display the color palettes
 			buildPalette(quantColors);
 
 			// setup qIcanvas for quantized color image

@@ -31,7 +31,8 @@ Changes from master (@ https://github.com/zygisS22/color-palette-extraction):
 
 	Modified palette swatch dimensions to w=100px by h=60px. 12/01/23
 
-
+	Optimized code in buildPalette() function:  created one function to build palette HTML
+	framework for both color and complimentary color palettes. 12/02/23
 
 ## How to run
 
