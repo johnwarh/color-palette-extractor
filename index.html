@@ -42,10 +42,12 @@
                     </div>
                     <div class="col-auto pt-3">
                         <input id="btnLoad" type="button"
-                               class="form-control btn jwa-btn m-3 me-5"
+                               class="form-control btn jwa-btn m-3"
                                value="Load File" accept="image/*" />
+                    </div>
+                    <div class="col-auto pt-3">
                         <input id="btnReset" type="button"
-                               class="form-control btn jwa-btn m-3 ms-5"
+                               class="form-control btn jwa-btn m-3"
                                value="Reset Page" />
                     </div>
                 </div>
@@ -59,9 +61,9 @@
                 <div class="col text-center mb-0">
                     <span id="spinner1" class="spinner-border mx-auto" role="status"></span>
                     <canvas id="qIcanvas"></canvas>
-                    <h4 class='mb-2'><span id="num_colors"></span>-color image</h4>
+                    <h4 class='mb-2'><span class="h4" id="num_colors"></span>-color image</h4>
                 </div>
-                <h4 class="text-center mb-3">Image filename: &nbsp; <span id="filename"></span></h4>
+                <h4 class="text-center mb-3">Image filename: &nbsp; <span class="h4" id="filename"></span></h4>
             </div>
             <form id="form1" class="form-border rounded mb-3 p-2">
                 <div class="row p-2">
@@ -70,32 +72,28 @@
                             Palette Background Color: &nbsp;
                             <span id="p_bkgd" class="fs-5"></span>
                         </label>
-                        <span class="label me-2 mb-1 fs-6 ">black</span>
-                        <input id="bkgd_color" type="range" class=""
+                        <input id="bkgd_color" type="range" class="form-range"
                                min="0" max="255" />
-                        <span class="label ms-2 mb-1 fs-6">white</span>
                     </div>
                     <div class="col-auto">
                         <input id='bkdg_color_reset' type="reset"
-                               class="form-control btn jwa-btn m-3 mx-5"
+                               class="form-control btn jwa-btn m-3"
                                value="Reset Background Color" />
                     </div>
                     <div class="col-auto">
                         <input id="hide_caps" type="button"
-                               class="form-control btn jwa-btn m-3 mx-5"
+                               class="form-control btn jwa-btn m-3"
                                value="Show / Hide Palette Text" />
                     </div>
                 </div>
             </form>
             <hr />
             <div class="text-center">
-                <!--color palette swatches-->
                 <h4>Image color palette (sorted by lightness)</h4>
                 <div id="palette" class="row mx-1 p-3 rounded"></div>
             </div>
             <hr />
             <div class="text-center">
-                <!--complementary palette swatches-->
                 <h4>Complementary color palette (sorted by lightness)</h4>
                 <div id="complementary" class="row mx-1 p-3 rounded ms-0"></div>
             </div>

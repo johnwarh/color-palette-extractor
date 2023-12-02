@@ -7,7 +7,7 @@ const form = document.getElementById("form"), // image upload form
 	// canvases, spinners, etc. for image display
 	sIcanvas = document.getElementById('sIcanvas'), // canvas for uploaded image
 	ctx = sIcanvas.getContext("2d"),
-	spinner = document.getElementById('spinner'),
+	spinner = document.getElementById('spinner'), // show when busy
 	qIcanvas = document.getElementById('qIcanvas'), // cnavas for quantized color image
 	ctx1 = qIcanvas.getContext('2d'),
 	spinner1 = document.getElementById('spinner1'),
@@ -18,7 +18,7 @@ const form = document.getElementById("form"), // image upload form
 	compContainer = document.getElementById("complementary"); // complementary palette color swatches
 
 /** Processes the list of palette colors and then builds the HTML
- *  framework to display the palette swatched */
+ *  framework to display the palette swatches */
 const buildPalette = (colorsList) => { // colorsList = quantized color rgbArray
 	let hslColors = '',
 		hslColorsComp = '';
@@ -260,7 +260,7 @@ const quantization = (rgbValues, depth) => {
 /** Sample imageData: 4 values at a time (r, g, b, and alpha) for each pixel 
  * Alpha assumed to be 255, i.e. fully opaque, and is ignored. The sequential 
  * index of each pixel is added for image reconstruction later */
-const buildRgb = ( imageData ) => {
+const buildRgb = (imageData) => {
 	const rgbValues = [];
 	let j = 0;
 	for (let k = 0; k < imageData.length; k += 4) {
@@ -276,8 +276,7 @@ const buildRgb = ( imageData ) => {
 	return rgbValues;
 };
 
-// quantized color image data array
-const qIpixels = [];
+const qIpixels = [];  // quantized color image data array
 
 const main = () => {
 	clean_canvas_and_palette();
@@ -293,12 +292,12 @@ const main = () => {
 	reader.onload = () => {
 		image.onload = () => {
 
-			// set canvas widths for image display
+			// set canvas widths for image displays
 			sIcanvas.width = qIcanvas.width = image.width;
 			sIcanvas.height = qIcanvas.height = image.height;
 			console.log('sIcanvas w x h = ', sIcanvas.width, ' x ', sIcanvas.height)
 
-			// draw image on sIcanvas and retrieve imageData array from canvas
+			// draw uploaded image on sIcanvas and retrieve imageData array from canvas
 			ctx.drawImage(image, 0, 0);
 			const imageData = ctx.getImageData(0, 0, sIcanvas.width, sIcanvas.height);
 
@@ -361,8 +360,9 @@ const clean_canvas_and_palette = () => {
 	spinner.style.visibility = 'hidden';
 	spinner1.style.visibility = 'hidden';
 	fileName.innerHTML = '';
+	num_colors.innerHTML = 'n';
 
-}
+};
 resetBtn.addEventListener('click', reset);
 loadBtn.addEventListener('click', main);
 reset();
