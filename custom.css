@@ -100,6 +100,6 @@ canvas { border-radius: 2%; max-width: 100%; height: auto; }
 
 .form-range::-moz-range-track { background-color: none; background-image: linear-gradient(to right, #000, #fff); }
 
-.form-range::-webkit-slider-thumb { width: 2rem; height: 1rem; }
+.form-range::-webkit-slider-thumb { width: 2rem; height: 1rem; background-color: #99cc00; }
 
-.form-range::-moz-range-thumb { width: 2rem; height: 1rem; }
+.form-range::-moz-range-thumb { width: 2rem; height: 1rem; background-color: #99cc00; }

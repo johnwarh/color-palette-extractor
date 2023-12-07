@@ -34,6 +34,31 @@ Changes from master (@ https://github.com/zygisS22/color-palette-extraction):
 	Optimized code in buildPalette() function:  created one function to build palette HTML
 	framework for both color and complimentary color palettes. 12/02/23
 
+	Code cleanup Code cleanup. 12/06/23
+		In mccq.js:
+			Moved all the functions called inside main(), into main() to localize the qIpixels 
+			array which needed to be global before this change.
+			Renamed function bld_pal() to build_html().
+			Changed all double quotes (") to single quote(').
+
+		in bkgd_controls.js:
+			Renamed hideCapps() to hideCaptions(). also 
+			Renamed paletteReset() to paletteBkgdReset().
+			Added a few ';' to const declarations missing them.
+			Moved declarations for 'palette' and 'complementary' elements
+		in setBkgdHex():
+			Removed 'caption_colors' variable and moved element references
+			into setTextColor() and hideCaptions() functions.
+			Modified setBkgdHex(), removing all the unnecessary '>=' tests.
+			Renamed setBkgdHex() to setPaletteColor().
+
+		In custom.css
+		Changed background color for range control thumbslider in custom.css to increase contrast with background.
+
+		Updated headerPhoto.jpg
+
+
+
 ## How to run
 
 Clone the repository and open the index.html file in a browser.
