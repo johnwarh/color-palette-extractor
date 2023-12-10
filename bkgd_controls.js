@@ -10,7 +10,7 @@ const setPaletteColor = (rgb) => {
         p_bkgd = document.getElementById('p_bkgd'); // bkgd color hex code displayed here
 
     var hex = rgb.toString(16).toUpperCase();
-    if (hex.length < 2) { hex = '0' + hex; }
+    if (hex.length < 2) { hex = '0' + hex; } // zero pad as needed
     var hex_color = "#" + hex + hex + hex;  // hex 000000-ffffff
     palette.style.backgroundColor = hex_color;
     complementary.style.backgroundColor = hex_color
