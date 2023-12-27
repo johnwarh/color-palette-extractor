@@ -5,7 +5,7 @@
 Using median cut algorithm & color quantization to obtain a color palette with 
 complementary colors in plain Javascript and html.  Runs in a browser.
 
-Try the demo at <a href='https://johnwarh.github.io/color-palette-extractor'></a>
+Try the demo <a href='https://johnwarh.github.io/color-palette-extractor'>color-palette-extractor demo</a>
 
 Changes from master (@ https://github.com/zygisS22/color-palette-extraction): 
 
